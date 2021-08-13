@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HotelModelStoreContainer" CdmEntityContainer="HotelEntities">
+    <EntitySetMapping Name="Cat_CapitalHumano_Empleado">
+      <EntityTypeMapping TypeName="HotelModel.Cat_CapitalHumano_Empleado">
+        <MappingFragment StoreEntitySet="Cat_CapitalHumano_Empleado">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cat_Seguridad_Rol">
+      <EntityTypeMapping TypeName="HotelModel.Cat_Seguridad_Rol">
+        <MappingFragment StoreEntitySet="Cat_Seguridad_Rol">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cat_Seguridad_Usuario">
+      <EntityTypeMapping TypeName="HotelModel.Cat_Seguridad_Usuario">
+        <MappingFragment StoreEntitySet="Cat_Seguridad_Usuario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="EmpleadoID" ColumnName="EmpleadoID" />
+          <ScalarProperty Name="RolID" ColumnName="RolID" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cat_Ventas_Cliente">
+      <EntityTypeMapping TypeName="HotelModel.Cat_Ventas_Cliente">
+        <MappingFragment StoreEntitySet="Cat_Ventas_Cliente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="TipoclienteID" ColumnName="TipoclienteID" />
+          <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cat_Ventas_TipoCliente">
+      <EntityTypeMapping TypeName="HotelModel.Cat_Ventas_TipoCliente">
+        <MappingFragment StoreEntitySet="Cat_Ventas_TipoCliente">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TipoCliente" ColumnName="TipoCliente" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cat_Ventas_TipoHabitacion">
+      <EntityTypeMapping TypeName="HotelModel.Cat_Ventas_TipoHabitacion">
+        <MappingFragment StoreEntitySet="Cat_Ventas_TipoHabitacion">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TipoHabitacion" ColumnName="TipoHabitacion" />
+          <ScalarProperty Name="Activo" ColumnName="Activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tra_Ventas_Reservacion">
+      <EntityTypeMapping TypeName="HotelModel.Tra_Ventas_Reservacion">
+        <MappingFragment StoreEntitySet="Tra_Ventas_Reservacion">
+          <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClienteID" ColumnName="ClienteID" />
+          <ScalarProperty Name="HabitacionID" ColumnName="HabitacionID" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="DiasEstancia" ColumnName="DiasEstancia" />
+          <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="IVA" ColumnName="IVA" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cat_Ventas_Habitacion">
+      <EntityTypeMapping TypeName="HotelModel.Cat_Ventas_Habitacion">
+        <MappingFragment StoreEntitySet="Cat_Ventas_Habitacion">
+          <ScalarProperty Name="Disponible" ColumnName="Disponible" />
+          <ScalarProperty Name="NoHabitacion" ColumnName="NoHabitacion" />
+          <ScalarProperty Name="RutaFoto" ColumnName="RutaFoto" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="PrecioHabitacion" ColumnName="PrecioHabitacion" />
+          <ScalarProperty Name="TipoHabitacionID" ColumnName="TipoHabitacionID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

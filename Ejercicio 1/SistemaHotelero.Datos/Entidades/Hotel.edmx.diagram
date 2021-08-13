@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="efd271511ad44c74b1a12a89bd5a6f32" Name="Diagram1">
+        <EntityTypeShape EntityType="HotelModel.Cat_CapitalHumano_Empleado" Width="1.5" PointX="5.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Cat_Seguridad_Rol" Width="1.5" PointX="5.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Cat_Seguridad_Usuario" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Cat_Ventas_Cliente" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Cat_Ventas_TipoCliente" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Cat_Ventas_TipoHabitacion" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelModel.Tra_Ventas_Reservacion" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="HotelModel.FK__Cat_Segur__Emple__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FK__Cat_Segur__RolID__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelModel.FK__Tra_Venta__Clien__398D8EEE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HotelModel.Cat_Ventas_Habitacion" Width="1.5" PointX="3" PointY="1.125" />
+        <AssociationConnector Association="HotelModel.FK__Cat_Venta__TipoH__31EC6D26" />
+        <AssociationConnector Association="HotelModel.FK__Tra_Venta__Habit__3A81B327" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

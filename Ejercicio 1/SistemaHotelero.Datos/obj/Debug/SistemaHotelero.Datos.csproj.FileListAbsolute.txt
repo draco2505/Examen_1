@@ -1,0 +1,12 @@
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\bin\Debug\SistemaHotelero.Datos.dll.config
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\bin\Debug\SistemaHotelero.Datos.dll
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\bin\Debug\SistemaHotelero.Datos.pdb
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\bin\Debug\EntityFramework.dll
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\bin\Debug\EntityFramework.xml
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\obj\Debug\SistemaHotelero.Datos.csprojAssemblyReference.cache
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\obj\Debug\SistemaHotelero.Datos.csproj.CoreCompileInputs.cache
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\obj\Debug\SistemaHotelero.Datos.csproj.CopyComplete
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\obj\Debug\SistemaHotelero.Datos.dll
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\obj\Debug\SistemaHotelero.Datos.pdb
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\karla\Documents\Desarrollo\Examen\Ejercicio 1\SistemaHotelero.Datos\bin\Debug\EntityFramework.SqlServer.xml

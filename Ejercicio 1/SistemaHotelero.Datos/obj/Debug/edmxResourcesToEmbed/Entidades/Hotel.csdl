@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cat_CapitalHumano_Empleado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cat_Seguridad_Usuario" Relationship="Self.FK__Cat_Segur__Emple__2A4B4B5E" FromRole="Cat_CapitalHumano_Empleado" ToRole="Cat_Seguridad_Usuario" />
+  </EntityType>
+  <EntityType Name="Cat_Seguridad_Rol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cat_Seguridad_Usuario" Relationship="Self.FK__Cat_Segur__RolID__2B3F6F97" FromRole="Cat_Seguridad_Rol" ToRole="Cat_Seguridad_Usuario" />
+  </EntityType>
+  <EntityType Name="Cat_Seguridad_Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Contrasena" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmpleadoID" Type="Int32" />
+    <Property Name="RolID" Type="Int32" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cat_CapitalHumano_Empleado" Relationship="Self.FK__Cat_Segur__Emple__2A4B4B5E" FromRole="Cat_Seguridad_Usuario" ToRole="Cat_CapitalHumano_Empleado" />
+    <NavigationProperty Name="Cat_Seguridad_Rol" Relationship="Self.FK__Cat_Segur__RolID__2B3F6F97" FromRole="Cat_Seguridad_Usuario" ToRole="Cat_Seguridad_Rol" />
+  </EntityType>
+  <EntityType Name="Cat_Ventas_Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoclienteID" Type="Int32" Nullable="false" />
+    <Property Name="Descuento" Type="Decimal" Precision="18" Scale="2" />
+    <NavigationProperty Name="Tra_Ventas_Reservacion" Relationship="Self.FK__Tra_Venta__Clien__398D8EEE" FromRole="Cat_Ventas_Cliente" ToRole="Tra_Ventas_Reservacion" />
+  </EntityType>
+  <EntityType Name="Cat_Ventas_TipoCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cat_Ventas_TipoHabitacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoHabitacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Activo" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cat_Ventas_Habitacion" Relationship="HotelModel.FK__Cat_Venta__TipoH__31EC6D26" FromRole="Cat_Ventas_TipoHabitacion" ToRole="Cat_Ventas_Habitacion" />
+  </EntityType>
+  <EntityType Name="Tra_Ventas_Reservacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClienteID" Type="Int32" />
+    <Property Name="HabitacionID" Type="Int32" />
+    <Property Name="FechaIngreso" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DiasEstancia" Type="Int32" Nullable="false" />
+    <Property Name="FechaRegistro" Type="DateTime" Precision="3" />
+    <Property Name="SubTotal" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IVA" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="Cat_Ventas_Cliente" Relationship="Self.FK__Tra_Venta__Clien__398D8EEE" FromRole="Tra_Ventas_Reservacion" ToRole="Cat_Ventas_Cliente" />
+    <NavigationProperty Name="Cat_Ventas_Habitacion" Relationship="HotelModel.FK__Tra_Venta__Habit__3A81B327" FromRole="Tra_Ventas_Reservacion" ToRole="Cat_Ventas_Habitacion" />
+    <Property Name="Estatus" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Cat_Segur__Emple__2A4B4B5E">
+    <End Role="Cat_CapitalHumano_Empleado" Type="Self.Cat_CapitalHumano_Empleado" Multiplicity="0..1" />
+    <End Role="Cat_Seguridad_Usuario" Type="Self.Cat_Seguridad_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_CapitalHumano_Empleado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cat_Seguridad_Usuario">
+        <PropertyRef Name="EmpleadoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cat_Segur__RolID__2B3F6F97">
+    <End Role="Cat_Seguridad_Rol" Type="Self.Cat_Seguridad_Rol" Multiplicity="0..1" />
+    <End Role="Cat_Seguridad_Usuario" Type="Self.Cat_Seguridad_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Seguridad_Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cat_Seguridad_Usuario">
+        <PropertyRef Name="RolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tra_Venta__Clien__398D8EEE">
+    <End Role="Cat_Ventas_Cliente" Type="Self.Cat_Ventas_Cliente" Multiplicity="0..1" />
+    <End Role="Tra_Ventas_Reservacion" Type="Self.Tra_Ventas_Reservacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Ventas_Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tra_Ventas_Reservacion">
+        <PropertyRef Name="ClienteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cat_CapitalHumano_Empleado" EntityType="Self.Cat_CapitalHumano_Empleado" />
+    <EntitySet Name="Cat_Seguridad_Rol" EntityType="Self.Cat_Seguridad_Rol" />
+    <EntitySet Name="Cat_Seguridad_Usuario" EntityType="Self.Cat_Seguridad_Usuario" />
+    <EntitySet Name="Cat_Ventas_Cliente" EntityType="Self.Cat_Ventas_Cliente" />
+    <EntitySet Name="Cat_Ventas_TipoCliente" EntityType="Self.Cat_Ventas_TipoCliente" />
+    <EntitySet Name="Cat_Ventas_TipoHabitacion" EntityType="Self.Cat_Ventas_TipoHabitacion" />
+    <EntitySet Name="Tra_Ventas_Reservacion" EntityType="Self.Tra_Ventas_Reservacion" />
+    <AssociationSet Name="FK__Cat_Segur__Emple__2A4B4B5E" Association="Self.FK__Cat_Segur__Emple__2A4B4B5E">
+      <End Role="Cat_CapitalHumano_Empleado" EntitySet="Cat_CapitalHumano_Empleado" />
+      <End Role="Cat_Seguridad_Usuario" EntitySet="Cat_Seguridad_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cat_Segur__RolID__2B3F6F97" Association="Self.FK__Cat_Segur__RolID__2B3F6F97">
+      <End Role="Cat_Seguridad_Rol" EntitySet="Cat_Seguridad_Rol" />
+      <End Role="Cat_Seguridad_Usuario" EntitySet="Cat_Seguridad_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tra_Venta__Clien__398D8EEE" Association="Self.FK__Tra_Venta__Clien__398D8EEE">
+      <End Role="Cat_Ventas_Cliente" EntitySet="Cat_Ventas_Cliente" />
+      <End Role="Tra_Ventas_Reservacion" EntitySet="Tra_Ventas_Reservacion" />
+    </AssociationSet>
+    <EntitySet Name="Cat_Ventas_Habitacion" EntityType="HotelModel.Cat_Ventas_Habitacion" />
+    <AssociationSet Name="FK__Cat_Venta__TipoH__31EC6D26" Association="HotelModel.FK__Cat_Venta__TipoH__31EC6D26">
+      <End Role="Cat_Ventas_TipoHabitacion" EntitySet="Cat_Ventas_TipoHabitacion" />
+      <End Role="Cat_Ventas_Habitacion" EntitySet="Cat_Ventas_Habitacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tra_Venta__Habit__3A81B327" Association="HotelModel.FK__Tra_Venta__Habit__3A81B327">
+      <End Role="Cat_Ventas_Habitacion" EntitySet="Cat_Ventas_Habitacion" />
+      <End Role="Tra_Ventas_Reservacion" EntitySet="Tra_Ventas_Reservacion" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cat_Ventas_Habitacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TipoHabitacionID" Type="Int32" />
+    <Property Name="PrecioHabitacion" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RutaFoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NoHabitacion" Type="Int32" Nullable="false" />
+    <Property Name="Disponible" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cat_Ventas_TipoHabitacion" Relationship="HotelModel.FK__Cat_Venta__TipoH__31EC6D26" FromRole="Cat_Ventas_Habitacion" ToRole="Cat_Ventas_TipoHabitacion" />
+    <NavigationProperty Name="Tra_Ventas_Reservacion" Relationship="HotelModel.FK__Tra_Venta__Habit__3A81B327" FromRole="Cat_Ventas_Habitacion" ToRole="Tra_Ventas_Reservacion" />
+  </EntityType>
+  <Association Name="FK__Cat_Venta__TipoH__31EC6D26">
+    <End Type="HotelModel.Cat_Ventas_TipoHabitacion" Role="Cat_Ventas_TipoHabitacion" Multiplicity="0..1" />
+    <End Type="HotelModel.Cat_Ventas_Habitacion" Role="Cat_Ventas_Habitacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Ventas_TipoHabitacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cat_Ventas_Habitacion">
+        <PropertyRef Name="TipoHabitacionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tra_Venta__Habit__3A81B327">
+    <End Type="HotelModel.Cat_Ventas_Habitacion" Role="Cat_Ventas_Habitacion" Multiplicity="0..1" />
+    <End Type="HotelModel.Tra_Ventas_Reservacion" Role="Tra_Ventas_Reservacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Ventas_Habitacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tra_Ventas_Reservacion">
+        <PropertyRef Name="HabitacionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

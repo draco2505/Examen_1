@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cat_CapitalHumano_Empleado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cat_Seguridad_Rol">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rol" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cat_Seguridad_Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Contrasena" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="EmpleadoID" Type="int" />
+    <Property Name="RolID" Type="int" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cat_Ventas_Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TipoclienteID" Type="int" Nullable="false" />
+    <Property Name="Descuento" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="Cat_Ventas_Habitacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoHabitacionID" Type="int" />
+    <Property Name="PrecioHabitacion" Type="money" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RutaFoto" Type="varchar(max)" />
+    <Property Name="NoHabitacion" Type="int" Nullable="false" />
+    <Property Name="Disponible" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cat_Ventas_TipoCliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoCliente" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cat_Ventas_TipoHabitacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TipoHabitacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Activo" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tra_Ventas_Reservacion">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClienteID" Type="int" />
+    <Property Name="HabitacionID" Type="int" />
+    <Property Name="FechaIngreso" Type="datetime" Nullable="false" />
+    <Property Name="DiasEstancia" Type="int" Nullable="false" />
+    <Property Name="FechaRegistro" Type="datetime" />
+    <Property Name="SubTotal" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="IVA" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Total" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="Estatus" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Cat_Segur__Emple__2A4B4B5E">
+    <End Role="Cat_CapitalHumano_Empleado" Type="Self.Cat_CapitalHumano_Empleado" Multiplicity="0..1" />
+    <End Role="Cat_Seguridad_Usuario" Type="Self.Cat_Seguridad_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_CapitalHumano_Empleado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cat_Seguridad_Usuario">
+        <PropertyRef Name="EmpleadoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cat_Segur__RolID__2B3F6F97">
+    <End Role="Cat_Seguridad_Rol" Type="Self.Cat_Seguridad_Rol" Multiplicity="0..1" />
+    <End Role="Cat_Seguridad_Usuario" Type="Self.Cat_Seguridad_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Seguridad_Rol">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cat_Seguridad_Usuario">
+        <PropertyRef Name="RolID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cat_Venta__TipoH__31EC6D26">
+    <End Role="Cat_Ventas_TipoHabitacion" Type="Self.Cat_Ventas_TipoHabitacion" Multiplicity="0..1" />
+    <End Role="Cat_Ventas_Habitacion" Type="Self.Cat_Ventas_Habitacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Ventas_TipoHabitacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cat_Ventas_Habitacion">
+        <PropertyRef Name="TipoHabitacionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tra_Venta__Clien__398D8EEE">
+    <End Role="Cat_Ventas_Cliente" Type="Self.Cat_Ventas_Cliente" Multiplicity="0..1" />
+    <End Role="Tra_Ventas_Reservacion" Type="Self.Tra_Ventas_Reservacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Ventas_Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tra_Ventas_Reservacion">
+        <PropertyRef Name="ClienteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tra_Venta__Habit__3A81B327">
+    <End Role="Cat_Ventas_Habitacion" Type="Self.Cat_Ventas_Habitacion" Multiplicity="0..1" />
+    <End Role="Tra_Ventas_Reservacion" Type="Self.Tra_Ventas_Reservacion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cat_Ventas_Habitacion">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tra_Ventas_Reservacion">
+        <PropertyRef Name="HabitacionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HotelModelStoreContainer">
+    <EntitySet Name="Cat_CapitalHumano_Empleado" EntityType="Self.Cat_CapitalHumano_Empleado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cat_Seguridad_Rol" EntityType="Self.Cat_Seguridad_Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cat_Seguridad_Usuario" EntityType="Self.Cat_Seguridad_Usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cat_Ventas_Cliente" EntityType="Self.Cat_Ventas_Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cat_Ventas_Habitacion" EntityType="Self.Cat_Ventas_Habitacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cat_Ventas_TipoCliente" EntityType="Self.Cat_Ventas_TipoCliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cat_Ventas_TipoHabitacion" EntityType="Self.Cat_Ventas_TipoHabitacion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tra_Ventas_Reservacion" EntityType="Self.Tra_Ventas_Reservacion" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Cat_Segur__Emple__2A4B4B5E" Association="Self.FK__Cat_Segur__Emple__2A4B4B5E">
+      <End Role="Cat_CapitalHumano_Empleado" EntitySet="Cat_CapitalHumano_Empleado" />
+      <End Role="Cat_Seguridad_Usuario" EntitySet="Cat_Seguridad_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cat_Segur__RolID__2B3F6F97" Association="Self.FK__Cat_Segur__RolID__2B3F6F97">
+      <End Role="Cat_Seguridad_Rol" EntitySet="Cat_Seguridad_Rol" />
+      <End Role="Cat_Seguridad_Usuario" EntitySet="Cat_Seguridad_Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cat_Venta__TipoH__31EC6D26" Association="Self.FK__Cat_Venta__TipoH__31EC6D26">
+      <End Role="Cat_Ventas_TipoHabitacion" EntitySet="Cat_Ventas_TipoHabitacion" />
+      <End Role="Cat_Ventas_Habitacion" EntitySet="Cat_Ventas_Habitacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tra_Venta__Clien__398D8EEE" Association="Self.FK__Tra_Venta__Clien__398D8EEE">
+      <End Role="Cat_Ventas_Cliente" EntitySet="Cat_Ventas_Cliente" />
+      <End Role="Tra_Ventas_Reservacion" EntitySet="Tra_Ventas_Reservacion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tra_Venta__Habit__3A81B327" Association="Self.FK__Tra_Venta__Habit__3A81B327">
+      <End Role="Cat_Ventas_Habitacion" EntitySet="Cat_Ventas_Habitacion" />
+      <End Role="Tra_Ventas_Reservacion" EntitySet="Tra_Ventas_Reservacion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
