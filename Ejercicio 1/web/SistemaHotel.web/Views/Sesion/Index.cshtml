@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+<link href="~/Content/css/Bootstrap/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/css/Sistema/Sesion.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<body>
+    <div id="login">
+        <h3 class="text-center text-white pt-5"></h3>
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6">
+                    <div id="login-box" class="row">
+                        <div class="text-center">
+                            <h2>Inicio de sesión</h2>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="usuario">Usuario:</label>
+                            <input type="text" id="usuario" placeholder="Ingresar usuario" maxlength="15" class="form-control" />
+                            <label data-error="usuario" class="texto-rojo"></label>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="password">Contraseña:</label>
+                            <input type="password" id="password" placeholder="Ingrese su contraseña" maxlength="8" class="form-control" />
+                            <label data-error="password" class="texto-rojo"></label>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="button" class="btn btn-primary" id="btnlogin" value="Iniciar sesión" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="~/Scripts/sesion.js"></script>
+<script>
+    var UrlLogin = "@Url.Action("Login", "Sesion")";
+    var Home = "@Url.Action("Index", "Home")";
+</script>

@@ -21,6 +21,7 @@ namespace SistemaHotelero.Infraestructura
                 cfg.CreateMap<Habitaciones, HabitacionesModel>().ReverseMap();
                 cfg.CreateMap<Ganancias, GananciasModel>().ReverseMap();
                 cfg.CreateMap<Reservacion, ReservacionModel>().ReverseMap();
+                cfg.CreateMap<Cat_Seguridad_Usuario, UsuarioModel>().ReverseMap();
             });
         }
     }
