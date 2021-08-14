@@ -66,9 +66,9 @@ namespace SistemaHotel.web.Servicio
             var response = await this.Request<HabitacionesModel>();
             return response;
         }
-        public async Task<ApiResponse<List<HabitacionesModel>>> RecuperarHabitaciones(int ClienteID)
+        public async Task<ApiResponse<List<HabitacionesModel>>> RecuperarHabitaciones(int TipoHabitacionID = 1)
         {
-            SetURL($"{UrlRecuperarHabitaciones}");
+            SetURL($"{UrlRecuperarHabitaciones}?TipoHabitacion={ TipoHabitacionID}");
             var response = await this.Request<List<HabitacionesModel>>();
             return response;
         }

@@ -83,3 +83,4 @@ C:\Users\karla\Desktop\Cosas de papá\Examen\Examen_1\Ejercicio 1\web\SistemaHot
 C:\Users\karla\Desktop\Cosas de papá\Examen\Examen_1\Ejercicio 1\web\SistemaHotel.web\obj\Debug\SistemaHotel.web.csproj.CopyComplete
 C:\Users\karla\Desktop\Cosas de papá\Examen\Examen_1\Ejercicio 1\web\SistemaHotel.web\obj\Debug\SistemaHotel.web.dll
 C:\Users\karla\Desktop\Cosas de papá\Examen\Examen_1\Ejercicio 1\web\SistemaHotel.web\obj\Debug\SistemaHotel.web.pdb
+C:\Users\karla\Desktop\Cosas de papá\Examen\Examen_1\Ejercicio 1\web\SistemaHotel.web\obj\Debug\SistemaHotel.web.csprojAssemblyReference.cache

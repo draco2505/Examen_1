@@ -1,0 +1,38 @@
+﻿@model List<SistemaHotel.web.Models.HabitacionesModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Numero de habitación</th>
+            <th scope="col">TipoHabitación</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Disponible</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+       @if(Model.Count() > 0)
+            {
+                foreach(var h in Model)
+                {
+                    <tr>
+                        <td>@h.Id</td>  
+                        <td>@h.Nombre</td>  
+                        <td>@h.NoHabitacion</td>  
+                        <td>@h.TipoHabitacion</td>  
+                        <td>@h.Preciohabitacion</td>  
+                        <td>@h.Disponible</td>  
+                        <td></td>  
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+
+                </tr>
+            }
+    </tbody>
+</table>
